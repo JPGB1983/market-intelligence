@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://hgopweqf.gensparkspace.com/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Intelligence MVP - Deal Flow LATAM</title>
+    <link href="./index_files/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index_files/all.min.css">
+    <script src="./index_files/chart.js.descarga"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .score-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+    </style>
+<style>
+    .genspark-notice-dialog {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .genspark-notice-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 10px 30px 30px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+
+    .genspark-notice-title {
+      color: #000;
+      font-family: Arial;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+    }
+
+    .genspark-notice-list {
+      margin: 24px 0;
+      
+      color: #606366;
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      padding-left: 12px;
+    }
+
+    .genspark-notice-list li {
+      margin-bottom: 12px;
+      list-style-type: disc;
+    }
+
+    .genspark-notice-list li a {
+      color: #606366;
+      text-decoration: underline;
+    }
+
+    .genspark-notice-checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+
+      color: #232425;
+
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .genspark-notice-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+      
+    .genspark-notice-ok {
+      color: #232425;
+
+      text-align: center;
+      font-family: Arial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      padding: 6px 14px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style></head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <i class="fas fa-chart-line text-3xl text-indigo-600 mr-3"></i>
+                    <h1 class="text-2xl font-bold text-gray-900">Market Intelligence</h1>
+                    <span class="ml-3 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-full">MVP</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://hgopweqf.gensparkspace.com/#metodologia" class="text-gray-500 hover:text-gray-900">Metodología</a>
+                    <a href="https://hgopweqf.gensparkspace.com/#ejemplos" class="text-gray-500 hover:text-gray-900">Análisis</a>
+                    <a href="https://hgopweqf.gensparkspace.com/#demo" class="text-gray-500 hover:text-gray-900">Demo</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <span class="inline-block px-3 py-1 mb-4 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full">
+                    Beta • Early Access
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Sistema de Due Diligence<br>
+                    <span class="text-yellow-300">para Startups LATAM</span>
+                </h1>
+                <p class="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
+                    MVP en desarrollo que analiza startups fintech de LATAM usando metodología propia de scoring DD. 
+                    Acelera tu proceso de investigación con análisis estructurado.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-rocket mr-2"></i>Solicitar Early Access
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
+                        <i class="fas fa-play mr-2"></i>Ver Demo del Sistema
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-indigo-600 mb-2">5</div>
+                    <div class="text-gray-600">Startups Analizadas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-indigo-600 mb-2">$209.9M</div>
+                    <div class="text-gray-600">Funding Total Analizado</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-indigo-600 mb-2">8.8</div>
+                    <div class="text-gray-600">DD Score Promedio</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-indigo-600 mb-2">48h</div>
+                    <div class="text-gray-600">vs 2-4 Semanas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="metodologia" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Metodología DD Score</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Sistema de scoring transparente basado en 5 factores clave para evaluar startups fintech de LATAM
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-bar text-blue-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Financial Metrics</h3>
+                    <div class="text-2xl font-bold text-blue-600 mb-2">30%</div>
+                    <p class="text-sm text-gray-600">Funding, growth rate, stage</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-green-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Team &amp; Founders</h3>
+                    <div class="text-2xl font-bold text-green-600 mb-2">25%</div>
+                    <p class="text-sm text-gray-600">Track record, experience</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Market Traction</h3>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">20%</div>
+                    <p class="text-sm text-gray-600">Adoption, expansion</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Investor Quality</h3>
+                    <div class="text-2xl font-bold text-yellow-600 mb-2">15%</div>
+                    <p class="text-sm text-gray-600">Tier-1 VCs, reputation</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-red-600"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Competitive Position</h3>
+                    <div class="text-2xl font-bold text-red-600 mb-2">10%</div>
+                    <p class="text-sm text-gray-600">Tech moat, differentiation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startup Analysis Examples -->
+    <section id="ejemplos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Ejemplos de Análisis Realizados</h2>
+                <p class="text-lg text-gray-600">
+                    Startups fintech LATAM que hemos analizado usando nuestra metodología DD Score
+                </p>
+            </div>
+
+            <!-- Grid Layout for Startups -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+                <!-- Yuno Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Yuno</h3>
+                        <span class="score-badge text-white px-3 py-1 rounded-full text-sm font-bold">9.3</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Payment orchestration platform</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Funding:</span>
+                            <span class="font-semibold">$35M Series A</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Investors:</span>
+                            <span class="font-semibold">a16z, Tiger Global</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Founded:</span>
+                            <span class="font-semibold">2022</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium inline-block">
+                        Founders ex-Rappi
+                    </div>
+                </div>
+
+                <!-- Tapi Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Tapi</h3>
+                        <span class="score-badge text-white px-3 py-1 rounded-full text-sm font-bold">9.1</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">B2B fintech billing platform</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Funding:</span>
+                            <span class="font-semibold">$31M Series A</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Investors:</span>
+                            <span class="font-semibold">a16z, Kaszek</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Team:</span>
+                            <span class="font-semibold">87 employees</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium inline-block">
+                        B2B SaaS
+                    </div>
+                </div>
+
+                <!-- OCN Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">OCN</h3>
+                        <span class="score-badge text-white px-3 py-1 rounded-full text-sm font-bold">8.7</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Gig worker financing</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Funding:</span>
+                            <span class="font-semibold">$86M Series A</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Investors:</span>
+                            <span class="font-semibold">Caravela Capital</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">CEO:</span>
+                            <span class="font-semibold">Mairon Sandoval</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium inline-block">
+                        Mobility
+                    </div>
+                </div>
+
+                <!-- POK Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">POK</h3>
+                        <span class="score-badge text-white px-3 py-1 rounded-full text-sm font-bold">8.5</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Blockchain credentials</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Funding:</span>
+                            <span class="font-semibold">$12M Series A</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Founder:</span>
+                            <span class="font-semibold">Guido Grinbaum</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Growth:</span>
+                            <span class="font-semibold">Series A in 14mo</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-medium inline-block">
+                        EdTech + Blockchain
+                    </div>
+                </div>
+
+                <!-- Principia Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Principia</h3>
+                        <span class="score-badge text-white px-3 py-1 rounded-full text-sm font-bold">8.2</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Education fintech Brazil</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Funding:</span>
+                            <span class="font-semibold">$45.9M Series A</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Investors:</span>
+                            <span class="font-semibold">Valor Capital, FJ Labs</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Strategy:</span>
+                            <span class="font-semibold">Acquired Provi</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-medium inline-block">
+                        Vertical EdTech
+                    </div>
+                </div>
+
+                <!-- DD Score Chart -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">DD Score Distribution</h3>
+                    <div class="h-64">
+                        <canvas id="scoreChart" width="334" height="256" style="display: block; box-sizing: border-box; height: 256px; width: 334px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Servicios MVP</h2>
+                <p class="text-lg text-gray-600">
+                    Acceso temprano a nuestra plataforma de análisis en desarrollo
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-2">Beta Access</h3>
+                        <div class="text-3xl font-bold text-indigo-600 mb-4">Gratis</div>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li>• Acceso al sistema MVP</li>
+                            <li>• 5 análisis ejemplo</li>
+                            <li>• Metodología transparente</li>
+                            <li>• Updates del desarrollo</li>
+                        </ul>
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+                            Solicitar Acceso
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm p-6 border-2 border-indigo-500">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-2">Custom Analysis</h3>
+                        <div class="text-3xl font-bold text-indigo-600 mb-4">$3K</div>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li>• Análisis personalizado</li>
+                            <li>• Report completo DD</li>
+                            <li>• 48h delivery</li>
+                            <li>• Q&amp;A session incluida</li>
+                        </ul>
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
+                            Más Popular
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-2">Partnership</h3>
+                        <div class="text-3xl font-bold text-indigo-600 mb-4">Custom</div>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li>• Co-development</li>
+                            <li>• White-label option</li>
+                            <li>• API access future</li>
+                            <li>• Strategic collaboration</li>
+                        </ul>
+                        <button class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300">
+                            Contactar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="demo" class="gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">
+                ¿Listo para Acelerar tu Due Diligence?
+            </h2>
+            <p class="text-xl text-indigo-100 mb-8">
+                Únete a los early adopters que están probando nuestro sistema de análisis MVP
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-rocket mr-2"></i>Solicitar Demo
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>Contactar Equipo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-chart-line text-2xl text-indigo-400 mr-2"></i>
+                <span class="text-xl font-bold">Market Intelligence</span>
+                <span class="ml-2 px-2 py-1 bg-yellow-600 text-yellow-100 text-xs font-medium rounded-full">MVP</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+                Sistema MVP de due diligence automatizada para startups LATAM
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://hgopweqf.gensparkspace.com/#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://hgopweqf.gensparkspace.com/#" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:contact@example.com" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DD Score Chart
+        const ctx = document.getElementById('scoreChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Yuno', 'Tapi', 'OCN', 'POK', 'Principia'],
+                datasets: [{
+                    label: 'DD Score',
+                    data: [9.3, 9.1, 8.7, 8.5, 8.2],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(16, 185, 129, 0.7)',
+                        'rgba(16, 185, 129, 0.6)',
+                        'rgba(16, 185, 129, 0.5)',
+                        'rgba(16, 185, 129, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(16, 185, 129, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDk92UgYRYWIsczvO7FWRb4bjVz0Mi1mPHendQ3HpInP48rop8zf87v%2BPwioIGRhu%2Bu6r9kUWgjP2k3AGraxEC4W2KvsBaYgAb0MEPDYhP3p%2B3eFmv6NcwKRlfdCFKszMvB3sQdtcRnNz2rR1aU2kzPo9EsKG6G2VPmMTTZ4%2BxPeCMSXDYwzYk1Q4efg13ysNBuP3c6YcKJuxLsElTz0Vw%2FulaJ5Zq9LOt%2BKMoWdOKvHkxQMQrcdxStVEYDH0Arwrh7wj4oPOFQaz16%2FK1yvwyOkbODBfyjkLTFjPf1a8pO8NMxpD9ThapyCS7F8ppeqAvhYpOv3COMT2cXkUcC4caXx53T2tXosht9OSvzxZRAA0D1BN%2FRiCL2NMA3YmEbMZmWY3%2F7s8%2BFvNLXHJOub2V%2BeLYtzn6Nw%2F7oGH3R6%2BtHrkT7KdYz%2B5VYRN%2FF0sF7osjWvP7qaK%2Fu4KrsPbxxKSyRSfIE%2FGS1nR2waZz9EtQssVJGyFN6BXhXjT9iEEctyJE4mOHRiyq%2BbRyPFrQS2P7N8%3D";
+        window.__genspark_locale = "es-ES";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDk92UgYRYWIsczvO7FWRb4bjVz0Mi1mPHendQ3HpInP48rop8zf87v+PwioIGRhu+u6r9kUWgjP2k3AGraxEC4W2KvsBaYgAb0MEPDYhP3p+3eFmv6NcwKRlfdCFKszMvB3sQdtcRnNz2rR1aU2kzPo9EsKG6G2VPmMTTZ4+xPeCMSXDYwzYk1Q4efg13ysNBuP3c6YcKJuxLsElTz0Vw/ulaJ5Zq9LOt+KMoWdOKvHkxQMQrcdxStVEYDH0Arwrh7wj4oPOFQaz16/K1yvwyOkbODBfyjkLTFjPf1a8pO8NMxpD9ThapyCS7F8ppeqAvhYpOv3COMT2cXkUcC4caXx53T2tXosht9OSvzxZRAA0D1BN/RiCL2NMA3YmEbMZmWY3/7s8+FvNLXHJOub2V+eLYtzn6Nw/7oGH3R6+tHrkT7KdYz+5VYRN/F0sF7osjWvP7qaK/u4KrsPbxxKSyRSfIE/GS1nR2waZz9EtQssVJGyFN6BXhXjT9iEEctyJE4mOHRiyq+bRyPFrQS2P7N8=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="./index_files/notice_dialog.js.descarga"></script>
+    <div class="genspark-notice-dialog" style="display: none;">
+      <div class="genspark-notice-content">
+        <h2 class="genspark-notice-title">Este sitio fue creado por un usuario, tenga en cuenta:</h2>
+        <ul class="genspark-notice-list">
+          <li>El contenido puede contener inexactitudes, verifique la información antes de usarla.</li>
+          <li>Si nota contenido inapropiado en este sitio, contáctenos en <a href="mailto:support@genspark.ai">support@genspark.ai</a>.</li>
+        </ul>
+        <div class="genspark-notice-checkbox">
+          <input type="checkbox" id="genspark-dont-show">
+          <label for="genspark-dont-show">No mostrar este mensaje de nuevo.</label>
+        </div>
+        <div class="genspark-notice-actions">
+          <button class="genspark-notice-ok">Aceptar</button>
+        </div>
+      </div>
+    </div></body></html>
